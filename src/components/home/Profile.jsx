@@ -11,7 +11,6 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-// Dummy Lorem component
 const Lorem = () => (
   <Box sx={{ padding: 2 }}>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vehicula urna sit amet lacus tempor, in ultricies metus vulputate. Phasellus auctor, lorem sit amet gravida volutpat, eros quam dignissim justo, ac mollis enim erat in urna.</p>

@@ -1,0 +1,409 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 803,
+      "max": [
+        72.86978149414063,
+        72.86978149414063,
+        250.1527099609375
+      ],
+      "min": [
+        -72.86978149414063,
+        -72.86978149414063,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 9636,
+      "componentType": 5126,
+      "count": 803,
+      "max": [
+        0.9979835152626038,
+        0.9996784329414368,
+        0.9999952912330627
+      ],
+      "min": [
+        -0.9979835748672485,
+        -0.9996784925460815,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 803,
+      "max": [
+        1.0,
+        1.0,
+        0.9979835748672485,
+        1.0
+      ],
+      "min": [
+        -0.9999996423721313,
+        -1.0,
+        -0.8974835872650146,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 803,
+      "max": [
+        0.9992623329162598,
+        0.9891602993011475
+      ],
+      "min": [
+        0.002537081018090248,
+        0.004153784364461899
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 3864,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 19272,
+      "componentType": 5126,
+      "count": 360,
+      "max": [
+        72.87494659423828,
+        63.517669677734375,
+        266.7899475097656
+      ],
+      "min": [
+        -48.508506774902344,
+        -57.719024658203125,
+        115.081787109375
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 23592,
+      "componentType": 5126,
+      "count": 360,
+      "max": [
+        0.9966235756874084,
+        0.9801642894744873,
+        0.9956684708595276
+      ],
+      "min": [
+        -0.9966235756874084,
+        -0.9801642894744873,
+        -0.2187364399433136
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 12848,
+      "componentType": 5126,
+      "count": 360,
+      "max": [
+        0.22763821482658386,
+        0.9938247203826904,
+        0.9997594356536865,
+        1.0
+      ],
+      "min": [
+        -0.9698992371559143,
+        -0.04395981505513191,
+        -0.24043573439121246,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 6424,
+      "componentType": 5126,
+      "count": 360,
+      "max": [
+        0.9748363494873047,
+        0.985351026058197
+      ],
+      "min": [
+        0.4001232087612152,
+        0.5292783379554749
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 15456,
+      "componentType": 5125,
+      "count": 960,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Yury Misiyuk (https://sketchfab.com/Tim0)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/cactus-f951db3894cf49448fd6359470a53580",
+      "title": "Cactus"
+    },
+    "generator": "Sketchfab-13.37.1",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 19296,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 9304,
+      "byteOffset": 19296,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 27912,
+      "byteOffset": 28600,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 18608,
+      "byteOffset": 56512,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 75120,
+      "uri": "cactus.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "cactus/Material_2143937762_baseColor.png"
+    },
+    {
+      "uri": "cactus/Material_2143937762_metallicRoughness.png"
+    },
+    {
+      "uri": "cactus/Material_2143937762_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "Material_2143937762",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cactus_Material #2143937762_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Igolki_Material #2143937762_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "620cadb7fb524f6ba2c142279149da5e.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        6.103515625e-05,
+        0.0,
+        1.0
+      ],
+      "name": "Cactus"
+    },
+    {
+      "mesh": 0,
+      "name": "Cactus_Material #2143937762_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        6.103515625e-05,
+        0.0,
+        1.0
+      ],
+      "name": "Igolki"
+    },
+    {
+      "mesh": 1,
+      "name": "Igolki_Material #2143937762_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

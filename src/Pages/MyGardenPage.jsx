@@ -66,7 +66,7 @@ export default function Variants() {
 
   return (
     <Stack display="flex" alignItems="center" direction="column" justifyContent="center" spacing={6} mt="2rem">
-      <Typography variant="h3" color="#964B00" fontWeight="bold">
+      <Typography variant="h3" color="success" fontWeight="bold">
         My Garden Plant
       </Typography>
       {plantData.map((item, index) => (

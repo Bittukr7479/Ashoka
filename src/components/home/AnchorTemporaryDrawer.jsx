@@ -1,8 +1,13 @@
 import * as React from 'react';
-import { Avatar, Box, Typography, Button, Paper, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText, IconButton, Drawer } from '@mui/material';
+import {
+  Avatar, Box, Typography, Button, Paper, Divider, List, ListItem, ListItemButton,
+  ListItemIcon, ListItemText, IconButton, Drawer, useMediaQuery
+} from '@mui/material';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useTheme } from '@mui/material/styles';
+import chatBot from '../../Pages/ChatBotPage';
 
 export default function RightSideDrawer() {
   const [state, setState] = React.useState({
@@ -15,6 +20,10 @@ export default function RightSideDrawer() {
     }
     setState({ right: open });
   };
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 
   const profile = () => (
     <Box textAlign="center" p={2}>
@@ -49,11 +58,12 @@ export default function RightSideDrawer() {
       {profile()} {/* Profile Section */}
       <Divider />
       <List>
-        {['Webiner', 'Bookmarks', 'Share Plant', 'Buy Plants'].map((text, index) => (
+        {['Webiner', 'Bookmarks', 'Chat Bot', 'Buy Plants'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                {index === 2 ? <InboxIcon /> : <MailIcon />}
+                
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -62,11 +72,11 @@ export default function RightSideDrawer() {
       </List>
       <Divider />
       <List>
-        {['Suggestion', 'Collection', 'Export Support'].map((text, index) => (
+        {['Collection', 'Expart Support', 'Sign out'].map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {/* {index % 2 === 0 ? <InboxIcon /> : <MailIcon />} */}
+                {index  === 2 ? <InboxIcon /> :<Button><MailIcon /></Button> }
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -79,7 +89,7 @@ export default function RightSideDrawer() {
   return (
     <div>
       <IconButton color="primary" aria-label="profile" onClick={toggleDrawer(true)}>
-        <AccountCircleIcon fontSize="large" sx={{color:'white'}}/>
+        <AccountCircleIcon fontSize="large" sx={{color:isMobile? 'black': 'white'}}/>
       </IconButton>
       <Drawer
         anchor="right"

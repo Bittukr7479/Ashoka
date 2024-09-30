@@ -11,6 +11,8 @@ import { useState, Suspense } from 'react';
 import {Canvas} from '@react-three/fiber';
 import LandingPage from './Pages/LandingPage';
 // import virtualGarden from '../public/VirtualGarden'
+import Footer from './Layout/Footer'
+import LoginPage from './Pages/LoginPage'
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
         <Route path="/plant-info" element={<PlantInfoPage />} />
         <Route path="/lorem-ipsum" element={<LoremPage />} />
         <Route path='/home' element={<LandingPage/>} />
+        <Route path='/login-page' element={<LoginPage/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

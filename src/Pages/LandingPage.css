@@ -2,8 +2,8 @@
 
 body{
     margin: 0;
-    background-color: #000;
-    color: #eee;
+    background-color: '#defff0';
+    color: green;
     font-family: Poppins;
     font-size: 12px;
 }
@@ -44,9 +44,9 @@ header a:hover{
 /* slider section  */
 
 .slider{
-    height: 90.3vh;
+    height: 100vh;
     margin-top: -50px;
-    width: 100vw;
+    /* width: 100vw; */
     overflow: hidden;
     position: relative;
 }

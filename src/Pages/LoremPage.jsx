@@ -44,7 +44,7 @@ function LoremPage() {
   const [stripes, setStripes] = useState("#ffff");
   const [soul, setSoul] = useState("#ffff");
   return (
-    <div style={{width:'33%'}}>
+    <div style={{width:'100%', height:'fit-content'}}>
       <div class="product-canvas">
         <Canvas>
           <Suspense fallback={null}>
@@ -54,7 +54,7 @@ function LoremPage() {
             />
             <Model
               customColors={{ mesh: mesh, stripes: stripes, soul: soul }}
-              scale={[0.5, 0.5, 0.5]} // Decrease the size of the model
+              scale={[0.6, 0.6, 0.6]} // Decrease the size of the model
               position={[0, 0, 0]}
             />
             <OrbitControls

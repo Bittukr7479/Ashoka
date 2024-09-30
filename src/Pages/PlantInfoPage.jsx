@@ -1,139 +1,370 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import { Stack, Typography, Paper, Box, Button, Divider } from '@mui/material';
-import img from '../Assets/ExploreImg/img_1.jpg';
+// import React from 'react';
+// import { Box, Typography, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
+// import {
+//   Favorite as HeartIcon,
+//   Psychology as BrainIcon,
+//   Shield as ShieldIcon,
+//   LocalHospital as BandageIcon,
+//   Restaurant as UtensilsIcon,
+//   Opacity as DropletIcon,
+//   ContentCut as HarvestIcon,
+//   Public as LocationIcon
+// } from '@mui/icons-material';
+// export default function NeemInfo() {
+//   // Refs for each section
+//   const diseasesRef = React.useRef(null);
+//   const usesRef = React.useRef(null);
+//   const cultivationRef = React.useRef(null);
+//   const harvestingRef = React.useRef(null);
+//   const locationRef = React.useRef(null);
 
-const ContentSection = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(2),
-  marginBottom: theme.spacing(2),
-}));
+//   // Function to handle smooth scrolling to a section
+//   const handleScroll = (ref) => {
+//     ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', });
+//   };
 
-const TulsiInfo = () => {
+//   return (
+//     <Box display={'flex'}>
+//       <Stack spacing={1} mt={4} position={'fixed'}>
+//         <Typography variant='h5' fontWeight={'500'}>
+//           Contents:
+//         </Typography>
+//         <Button variant='outlined' onClick={() => handleScroll(diseasesRef)}>Diseases Cured</Button>
+//         <Button variant='outlined' onClick={() => handleScroll(usesRef)}>Uses</Button>
+//         <Button variant='outlined' onClick={() => handleScroll(cultivationRef)}>Cultivation Method</Button>
+//         <Button variant='outlined' onClick={() => handleScroll(harvestingRef)}>Harvesting Methods</Button>
+//         <Button variant='outlined' onClick={() => handleScroll(locationRef)}>Where to Find</Button>
+//       </Stack>
+//       <Box sx={{ p: 4 }} ml={30}>
+//         <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
+//           <Card sx={{ width: '20rem' , height:'20rem'}}>
+//             <PlantModel1 />
+//           </Card>
+//         </Box>
+
+//         {/* Heading */}
+//         <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 4 }}>
+//           Neem (Azadirachta indica)
+//         </Typography>
+
+//         {/* Buttons for Navigation */}
+
+//         <Divider sx={{ my: 4 }} />
+
+//         {/* Diseases Cured Section */}
+//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={diseasesRef}>
+//           Diseases Cured
+//         </Typography>
+//         <Grid container spacing={2}>
+//           <Grid item xs={12} md={6}>
+//             <List>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Skin Disorders" secondary="Neem’s antibacterial properties help in treating acne and pimples." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Infections" secondary="Neem is effective against various bacterial and fungal infections." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Digestive Disorders" secondary="Helps in healing stomach ulcers and expelling parasitic worms." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Respiratory Disorders" secondary="Used traditionally to manage asthma symptoms and alleviate cough." />
+//               </ListItem>
+//             </List>
+//           </Grid>
+//           <Grid item xs={12} md={6}>
+//             <List>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Metabolic Disorders" secondary="Helps in managing blood sugar levels and aiding weight management." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Dental Issues" secondary="Helps reduce gum inflammation and alleviates toothache." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Joint Disorders" secondary="Neem’s anti-inflammatory properties help in reducing joint pain." />
+//               </ListItem>
+//               <ListItem>
+//                 <ListItemIcon><BandageIcon /></ListItemIcon>
+//                 <ListItemText primary="Eye Disorders" secondary="Used to treat eye infections like conjunctivitis." />
+//               </ListItem>
+//             </List>
+//           </Grid>
+//         </Grid>
+
+//         <Divider sx={{ my: 4 }} />
+
+//         {/* Uses Section */}
+//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={usesRef}>
+//           Uses
+//         </Typography>
+//         <List>
+//           <ListItem>
+//             <ListItemIcon><UtensilsIcon /></ListItemIcon>
+//             <ListItemText primary="Medicinal" secondary="Used in traditional medicine for its calming effects." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><UtensilsIcon /></ListItemIcon>
+//             <ListItemText primary="Pest Control" secondary="Neem oil is used as an organic pesticide." />
+//           </ListItem>
+//         </List>
+
+//         <Divider sx={{ my: 4 }} />
+
+//         {/* Cultivation Method Section */}
+//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={cultivationRef}>
+//           Cultivation Method
+//         </Typography>
+//         <List>
+//           <ListItem>
+//             <ListItemIcon><BandageIcon /></ListItemIcon>
+//             <ListItemText primary="Location" secondary="Prefers tropical and subtropical climates with full sunlight." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><BandageIcon /></ListItemIcon>
+//             <ListItemText primary="Soil" secondary="Well-drained sandy loam soil with a pH of 6-7." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><BandageIcon /></ListItemIcon>
+//             <ListItemText primary="Propagation" secondary="Typically grown from seeds, soak seeds for 24 hours before planting." />
+//           </ListItem>
+//         </List>
+
+//         <Divider sx={{ my: 4 }} />
+
+//         {/* Harvesting Method Section */}
+//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={harvestingRef}>
+//           Harvesting Methods
+//         </Typography>
+//         <List>
+//           <ListItem>
+//             <ListItemIcon><HarvestIcon /></ListItemIcon>
+//             <ListItemText primary="Seeds" secondary="Harvest when mature, typically yellowish-brown." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><HarvestIcon /></ListItemIcon>
+//             <ListItemText primary="Leaves" secondary="Harvest year-round, ensuring enough foliage remains." />
+//           </ListItem>
+//         </List>
+
+//         <Divider sx={{ my: 4 }} />
+
+//         {/* Where to Find Section */}
+//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={locationRef}>
+//           Where to Find
+//         </Typography>
+//         <List>
+//           <ListItem>
+//             <ListItemIcon><LocationIcon /></ListItemIcon>
+//             <ListItemText primary="Common Locations" secondary="Found in rural areas, home gardens, and urban parks." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><LocationIcon /></ListItemIcon>
+//             <ListItemText primary="National Parks" secondary="Present in Ranthambore, Bandhavgarh, and Guindy National Parks." />
+//           </ListItem>
+//           <ListItem>
+//             <ListItemIcon><LocationIcon /></ListItemIcon>
+//             <ListItemText primary="States" secondary="Concentrated in Uttar Pradesh, Rajasthan, and Madhya Pradesh." />
+//           </ListItem>
+//         </List>
+//       </Box>
+//     </Box>
+//   );
+// }
+
+import React from 'react';
+import { Box, Typography, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
+import PlantModel1 from '../components/Plants3DModel/Plant1'
+import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
+import {
+  Favorite as HeartIcon,
+  Psychology as BrainIcon,
+  Shield as ShieldIcon,
+  LocalHospital as BandageIcon,
+  Restaurant as UtensilsIcon,
+  Opacity as DropletIcon,
+  ContentCut as HarvestIcon,
+  Public as LocationIcon
+} from '@mui/icons-material';
+import FeedBack from '../components/PlantInfor/Feedback'
+
+import Aloevera from './Landing3dPlant'
+export default function AloeVeraInfo() {
   // Refs for each section
-  const benefitsRef = React.useRef(null);
+  const diseasesRef = React.useRef(null);
   const usesRef = React.useRef(null);
   const cultivationRef = React.useRef(null);
   const harvestingRef = React.useRef(null);
+  const locationRef = React.useRef(null);
 
   // Function to handle smooth scrolling to a section
   const handleScroll = (ref) => {
-    ref.current.scrollIntoView({ behavior: 'smooth' });
+    ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', });
   };
 
   return (
-    <Box sx={{ backgroundColor: '#E8F5E9', display: 'flex', justifyContent: 'center' }}>
-      <Stack spacing={4} sx={{ padding: '2rem', maxWidth: '1000px' }}>
-        <Stack flexDirection={'row'} gap={'30px'}>
-          <Box>
-            {/* Image Section */}
-            <img src={img} alt="tulsi plant" style={{ width: '300px', height: '300px', borderRadius: '10px' }} />
-          </Box>
-          <Stack justifyContent={'flex-start'} sx={{ height: '300px' }}>
-            <Stack mb={2}>
-              <Typography variant="h4" gutterBottom sx={{ textDecoration: 'underline' }} color='#2E7D32' fontWeight={'bold'}>
-                Tulsi (Holy Basil)
-              </Typography>
-              <Typography variant="h5">
-                <strong>Botany name:</strong> Ocimum tenuiflorum
-              </Typography>
-              <Typography>
-                Lorem ipsum dolor sit amet consectetur
-              </Typography>
-            </Stack>
+    <Box display={'flex'} sx={{backgroundColor:'#defff0'}}>
+      <Stack spacing={1} mt={4} position={'fixed'} ml={3}>
+        <Typography variant='h5' fontWeight={'600'}>
+          Contents:
+        </Typography>
+        <Button color='success' variant='outlined' onClick={() => handleScroll(diseasesRef)}>Diseases Cured</Button>
+        <Button color='success' variant='outlined' onClick={() => handleScroll(usesRef)}>Uses</Button>
+        <Button color='success' variant='outlined' onClick={() => handleScroll(cultivationRef)}>Cultivation Method</Button>
+        <Button color='success' variant='outlined' onClick={() => handleScroll(harvestingRef)}>Harvesting Methods</Button>
+        <Button color='success' variant='outlined' onClick={() => handleScroll(locationRef)}>Where to Find</Button>
+      </Stack>
+      <Box sx={{ p: 4 }} ml={30}>
+        <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
+          <Card sx={{ width: '20rem', height: '20rem', backgroundColor:'#849e93' }}>
+            <Aloevera />
+          </Card>
+        </Box>
+        {/* Heading */}
+        <Typography variant="h3" display={'flex'} alignItems={'center'} justifyContent={'center'} color='success' sx={{ fontWeight: 'bold', mb: 4 }}>
+          Aloe Vera (Aloe barbadensis miller)
+        </Typography>
+        <Divider sx={{ my: 4 }} />
 
-            {/* Buttons for Navigation */}
-            <Box display={'flex'} flexDirection={'column'} width={'fit-content'} gap={'10px'}>
-              <Button variant='outlined' onClick={() => handleScroll(benefitsRef)}>
-                Benefits
-              </Button>
-              <Button variant='outlined' onClick={() => handleScroll(usesRef)}>
-                Uses
-              </Button>
-              <Button variant='outlined' onClick={() => handleScroll(cultivationRef)}>
-                Cultivation Method
-              </Button>
-              <Button variant='outlined' onClick={() => handleScroll(harvestingRef)}>
-                Harvesting Method
-              </Button>
-            </Box>
-          </Stack>
-        </Stack>
 
-        {/* Benefits Section */}
-        <ContentSection ref={benefitsRef} sx={{ borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
-        <Typography variant="h4" gutterBottom textAlign={'center'} color='#2E7D32'>
-            Benefits
-          </Typography>
-          <Divider />
-          <Typography variant="body1">
-            <strong>Diseases cure:</strong>
-            <ul>
-              <li><strong>Heart health:</strong> Tulsi contains antioxidants and vitamin C, which may protect the heart from free radicals.</li>
-              <li><strong>Metabolic health:</strong> Tulsi may help lower blood sugar, improve cholesterol, and decrease inflammation.</li>
-              <li><strong>Mental health:</strong> Tulsi may help reduce stress, anxiety, and depression, and improve memory and cognitive function.</li>
-              <li><strong>Immunity:</strong> Tulsi may increase the immune response and inhibit spike proteins found in the SARS-CoV-2 virus.</li>
-              <li><strong>Oral health:</strong> Tulsi's antibacterial properties may help fight bad breath, reduce plaque buildup, and maintain healthy teeth and gums.</li>
-              <li><strong>Wound healing:</strong> Tulsi may help wounds heal faster and increase their breaking strength.</li>
-              <li><strong>Other health benefits:</strong> Tulsi may also help with headaches, fevers, acne, kidney stones, digestion, and insect bites.</li>
-            </ul>
-          </Typography>
-        </ContentSection>
+        {/* Diseases Cured Section */}
+        <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} display={'flex'} ref={diseasesRef}>
+          <MedicalInformationIcon fontSize='large' /> &nbsp; Diseases Cured
+        </Typography>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={6}>
+            <List>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Burns and Wounds" secondary="Aloe vera gel soothes burns and promotes wound healing." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Skin Conditions" secondary="Used to treat acne, eczema, and psoriasis due to its anti-inflammatory properties." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Constipation" secondary="Aloe vera juice is known for its natural laxative effect." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Ulcers and Digestive Issues" secondary="Helps soothe the stomach lining and reduce acid reflux." />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <List>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Oral Health" secondary="Aloe vera is used in mouthwashes to reduce gum inflammation and plaque." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Diabetes Management" secondary="Helps lower blood sugar levels in type 2 diabetes." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Joint Pain" secondary="Used for its anti-inflammatory effects to relieve joint pain." />
+              </ListItem>
+              <ListItem>
+                <ListItemIcon><BandageIcon /></ListItemIcon>
+                <ListItemText primary="Immune System Support" secondary="Rich in antioxidants, aloe vera helps boost the immune system." />
+              </ListItem>
+            </List>
+          </Grid>
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Uses Section */}
-        <ContentSection ref={usesRef} sx={{ borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
-        <Typography variant="h4" gutterBottom textAlign={'center'} color='#2E7D32'>
-            Uses
-          </Typography>
-          <Divider />
-          <Typography variant="body1">
-            <ul>
-              <li><strong>Health:</strong> Tulsi can help with a variety of health issues, including colds and coughs, anti-inflammatory, antioxidant properties, stress reduction, digestion improvement, and boosting the immune system.</li>
-              <li><strong>Culinary:</strong> Tulsi leaves can be used to flavor tea and as a spice in Thai dishes.</li>
-              <li><strong>Insect repellent:</strong> Dried tulsi leaves can be mixed with stored grains to repel insects.</li>
-            </ul>
-          </Typography>
-        </ContentSection>
+        <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={usesRef}>
+          Uses
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon><UtensilsIcon /></ListItemIcon>
+            <ListItemText primary="Medicinal" secondary="Used in traditional and modern medicine for its skin healing and digestive benefits." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><UtensilsIcon /></ListItemIcon>
+            <ListItemText primary="Cosmetics" secondary="Aloe vera gel is widely used in creams, lotions, shampoos, and other skin care products." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><UtensilsIcon /></ListItemIcon>
+            <ListItemText primary="Health Supplements" secondary="Aloe vera juice is consumed to aid digestion and boost overall health." />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Cultivation Method Section */}
-        <ContentSection ref={cultivationRef} sx={{ borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
-        <Typography variant="h4" gutterBottom textAlign={'center'} color='#2E7D32'>
-            Cultivation Method
-          </Typography>
-          <Divider />
-          <Typography variant="body1">
-            <ul>
-              <li><strong>Prepare the nursery:</strong> Prepare seed bags that are 15 inches by 4'9" and add farm yard manure.</li>
-              <li><strong>Sow the seeds:</strong> Mix the seeds with sand in a 1:5 ratio and sow them 2 cm deep.</li>
-              <li><strong>Water:</strong> Water the seeds with a sprinkler hose two days after sowing.</li>
-              <li><strong>Thin:</strong> When the seedlings have 4-5 leaves, they are ready to be transplanted into the field.</li>
-              <li><strong>Fertilize:</strong> Spray the seedlings with a 2% urea solution 15-20 days before transplanting to help them grow healthy.</li>
-              <li><strong>Transplant:</strong> Transplant the seedlings in the middle of April when they are 6 weeks old.</li>
-              <li><strong>Water before transplanting:</strong> Water the seedling beds 24 hours before transplanting so the seedlings can be easily uprooted.</li>
-              <li><strong>Soil:</strong> Tulsi grows best in well-drained soil with good organic matter and a pH of 5.0 to 7.5. Avoid growing it in highly saline, alkaline, or waterlogged conditions.</li>
-            </ul>
-          </Typography>
-        </ContentSection>
+        <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={cultivationRef}>
+          Cultivation Method
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon><ShieldIcon /></ListItemIcon>
+            <ListItemText primary="Climate" secondary="Grows best in tropical and subtropical regions with full sunlight." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><ShieldIcon /></ListItemIcon>
+            <ListItemText primary="Soil" secondary="Prefers well-drained, sandy soil with a pH of 6.0-7.0." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><ShieldIcon /></ListItemIcon>
+            <ListItemText primary="Propagation" secondary="Aloe vera is commonly propagated from offsets or pups." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><ShieldIcon /></ListItemIcon>
+            <ListItemText primary="Watering" secondary="Requires minimal watering; overwatering may cause root rot." />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Harvesting Method Section */}
-        <ContentSection ref={harvestingRef} sx={{ borderRadius: '10px', boxShadow: '0px 0px 10px rgba(0,0,0,0.1)' }}>
-        <Typography variant="h4" gutterBottom textAlign={'center'} color='#2E7D32'>
-            Harvesting Method
-          </Typography>
-          <Divider />
-          <Typography variant="body1">
-            <ul>
-              <li><strong>When to harvest:</strong> Tulsi is typically harvested at full bloom, which is usually 90–95 days after planting. After the first harvest, you can harvest the plant every 65–75 days.</li>
-              <li><strong>How to harvest:</strong> Cut the plant 15–20 cm above the ground. You can harvest a few leaves and flowers at a time, even when the plant is young.</li>
-              <li><strong>When to harvest for oil:</strong> Harvest on a bright, sunny day to get the best oil yield. Avoid harvesting after it rains.</li>
-              <li><strong>After harvesting:</strong> You can let the harvested tulsi wilt in the field for 4–5 hours to reduce moisture and bulk.</li>
-              <li><strong>Harvesting tips:</strong> Harvesting the growing tips encourages bushier growth.</li>
-              <li><strong>When to harvest seeds:</strong> Tulsi seeds are ready when the pods turn brownish and tiny black seeds start to appear.</li>
-            </ul>
-          </Typography>
-        </ContentSection>
-      </Stack>
+        <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={harvestingRef}>
+          Harvesting Methods
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon><HarvestIcon /></ListItemIcon>
+            <ListItemText primary="Leaves" secondary="Harvest mature, outer leaves by cutting them close to the base." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><HarvestIcon /></ListItemIcon>
+            <ListItemText primary="Gel Extraction" secondary="Extract gel by slicing open the leaf and scooping out the inner gel." />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ my: 4 }} />
+
+        {/* Where to Find Section */}
+        <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={locationRef}>
+          Where to Find
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon><LocationIcon /></ListItemIcon>
+            <ListItemText primary="Common Locations" secondary="Aloe vera is widely cultivated in home gardens, farms, and greenhouses." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><LocationIcon /></ListItemIcon>
+            <ListItemText primary="Countries" secondary="Found in India, Mexico, USA, South Africa, and the Mediterranean region." />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon><LocationIcon /></ListItemIcon>
+            <ListItemText primary="Regions" secondary="Prefers arid, tropical, and semi-tropical climates." />
+          </ListItem>
+        </List>
+        <FeedBack/>
+      </Box>
     </Box>
   );
-};
-
-export default TulsiInfo;
+}
