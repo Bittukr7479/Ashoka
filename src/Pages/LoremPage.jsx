@@ -61,6 +61,8 @@ function LoremPage() {
               enablePan={true}
               enableZoom={true}
               enableRotate={true}
+              minDistance={5}   // Minimum zoom distance
+              maxDistance={6}  // Maximum zoom distance
               minPolarAngle={Math.PI / 2}  // Fix the vertical angle to 90 degrees
         maxPolarAngle={Math.PI / 2}    // Limit horizontal rotation (right)
             />

@@ -65,7 +65,7 @@ export default function Variants() {
   };
 
   return (
-    <Stack display="flex" alignItems="center" direction="column" justifyContent="center" spacing={6} mt="2rem">
+    <Stack display="flex" alignItems="center" direction="column" justifyContent="center" spacing={6} padding={'3rem 0rem'} style={{backgroundColor:'#defff0'}}>
       <Typography variant="h3" color="success" fontWeight="bold">
         My Garden Plant
       </Typography>

@@ -51,7 +51,7 @@ export default function TitlebarImageList() {
   return (
     <ImageList sx={{ width: 'auto', height: 'unset' }} style={{ gap: '50px' }}>
       <ImageListItem key="Subheader" cols={3}>
-        <ListSubheader component="div">
+        <ListSubheader style={{backgroundColor:'#defff0'}}>
           <Typography variant='h4' color='success' fontWeight={'bold'}>
             List of Plant:
           </Typography>

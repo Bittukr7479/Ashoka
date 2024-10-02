@@ -1,7 +1,6 @@
-import React, { Suspense } from 'react'
-import { useRef, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, useGLTF, } from '@react-three/drei'
+import { OrbitControls, useGLTF } from '@react-three/drei'
 import './Plant.css'
 
 function Model(props) {
@@ -20,9 +19,10 @@ function LoremPage() {
   const [mesh, setMesh] = useState("#ffff");
   const [stripes, setStripes] = useState("#ffff");
   const [soul, setSoul] = useState("#ffff");
+
   return (
-    <div >
-      <div class="product-canvas">
+    <div>
+      <div className="product-canvas">
         <Canvas>
           <Suspense fallback={null}>
             <ambientLight />
@@ -31,23 +31,23 @@ function LoremPage() {
             />
             <Model
               customColors={{ mesh: mesh, stripes: stripes, soul: soul }}
-              scale={[0.0114, 0.0114, 0.0114]} // Decrease the size of the model
+              scale={[0.0114, 0.0114, 0.0114]} 
               position={[0, -0.3, 0]}
             />
             <OrbitControls
               enablePan={true}
               enableZoom={true}
               enableRotate={true}
-              minPolarAngle={Math.PI / 2}  // Fix the vertical angle to 90 degrees
-        maxPolarAngle={Math.PI / 2}    // Limit horizontal rotation (right)
+              minDistance={4}   // Minimum zoom distance
+              maxDistance={9}  // Maximum zoom distance
+              // minPolarAngle={Math.PI / 2}  // Lock vertical rotation angle
+              // maxPolarAngle={Math.PI / 2}  // Lock vertical rotation angle
             />
-            {/* <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} /> */}
           </Suspense>
         </Canvas>
       </div>
     </div>
   )
 }
-
 
 export default LoremPage

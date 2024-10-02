@@ -56,9 +56,9 @@ function LoremPage() {
               enablePan={true}
               enableZoom={true}
               enableRotate={true}
-              minPolarAngle={Math.PI / 2}  // Fix the vertical angle to 90 degrees
-        maxPolarAngle={Math.PI / 2}    // Limit horizontal rotation (right)
-            />
+              minDistance={4}   // Minimum zoom distance
+              maxDistance={9}  // Maximum zoom distance
+              />
             {/* <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} /> */}
           </Suspense>
         </Canvas>

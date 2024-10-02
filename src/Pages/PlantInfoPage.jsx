@@ -193,7 +193,7 @@ import {
   Public as LocationIcon
 } from '@mui/icons-material';
 import FeedBack from '../components/PlantInfor/Feedback'
-
+import PlantGoogleMap from '../components/PlnatInfo/PlantGoogleMap';
 import Aloevera from './Landing3dPlant'
 export default function AloeVeraInfo() {
   // Refs for each section
@@ -364,6 +364,7 @@ export default function AloeVeraInfo() {
           </ListItem>
         </List>
         <FeedBack/>
+        <PlantGoogleMap/>
       </Box>
     </Box>
   );
