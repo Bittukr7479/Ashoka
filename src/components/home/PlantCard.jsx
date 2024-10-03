@@ -22,7 +22,7 @@ import img7 from '../../Assets/plantImg/plant1.png';
 import img8 from '../../Assets/plantImg/plant2.png';
 import img9 from '../../Assets/plantImg/plant3.png';
 import img10 from '../../Assets/plantImg/plant2.png';
-import { Box, CardActionArea, Stack } from '@mui/material';
+import { Box, CardActionArea, Stack, useMediaQuery, useTheme } from '@mui/material';
 import './CoreFeatures.css'
 import Plant1 from '../Plants3DModel/Plant1'
 import Plant2 from '../Plants3DModel/Plant2'
@@ -37,6 +37,8 @@ const getInstagramProfileURL = (username) => `https://www.instagram.com/${userna
 
 export default function ImgMediaCard() {
   
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const description = (path) => {
     navigate('/plant-info'); // Navigate to the path when a button is clicked
   };

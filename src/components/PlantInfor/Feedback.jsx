@@ -1,6 +1,6 @@
 // src/components/ReviewsSection.js
 import React from 'react';
-import { Container, Typography, Card, CardContent, Link } from '@mui/material';
+import { Container, Typography, Card, CardContent, Link, useTheme, useMediaQuery } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { Stack } from '@mui/system';
 import Rating from '@mui/material/Rating';
@@ -19,6 +19,8 @@ const reviews = [
 
 
 const ReviewsSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     <Container maxWidth="lg" style={{ padding: '50px 0' }}>
       <Typography

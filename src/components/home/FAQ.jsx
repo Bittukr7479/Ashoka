@@ -55,7 +55,7 @@ export default function AccordionTransition() {
 
     return (
         <Box display={'flex'}>
-            <Stack width={isMobile? 'max-content':'60%'} margin={'20px'} mb={'20px'} gap={'10px'} >
+            <Stack width={'-webkit-fill-available'} margin={'20px'} mb={'20px'} gap={'10px'} >
                 <Typography display={'flex'} justifyContent={'center'} variant='h4' fontWeight={'600'} color='text.primary' margin={'20px 0px'}>
                     General FAQ
                 </Typography>

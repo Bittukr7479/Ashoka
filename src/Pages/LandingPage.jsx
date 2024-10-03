@@ -6,7 +6,7 @@ import img2 from '../Assets/image/img2.jpg';
 import img3 from '../Assets/image/img3.jpg';
 import img4 from '../Assets/image/img4.jpg';
 import Landing3dPlant from './Landing3dPlant.jsx';
-import { Box, Button, colors, Dialog, DialogActions, Stack, Typography } from '@mui/material';
+import { Box, Button, colors, Dialog, DialogActions, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import FAQ from '../components/home/FAQ';
 import CoreFeatures from '../components/home/CoreFeatures';
 import PlantCard from '../components/home/PlantCard.jsx';
@@ -14,6 +14,8 @@ import LoginPage from "./LoginPage.jsx";
 import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   useEffect(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -210,10 +212,10 @@ function LandingPage() {
             flexDirection: 'column'
           }}
         >
-          <Box height={'20rem'}>
+          <Box height={'20rem'} display={isMobile? 'none':'unset'}>
             <Landing3dPlant />
           </Box>
-          <Stack ref={textRef} alignItems={'flex-start'} ml={'5rem'}>
+          <Stack height={isMobile?'40rem':'unset'} justifyContent={isMobile? 'center' :'unset'} ref={textRef} width={isMobile? '17rem' : 'unset'} alignItems={'flex-start'} ml={isMobile? '3rem':'5rem'}>
             <Typography className="animated-text" variant="h2" fontWeight={'600'} color="#00ff00">
               Ashoka
             </Typography>
@@ -248,6 +250,7 @@ function LandingPage() {
           justifyContent={'center'}
           fontWeight={'600'}
           m={'30px 30px 20px 30px'}
+          mb={isMobile? '4.5rem': 'unset'}
           variant="h4"
           width={'inherit'}
         >

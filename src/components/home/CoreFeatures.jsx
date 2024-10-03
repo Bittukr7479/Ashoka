@@ -87,13 +87,13 @@ export default function App() {
 
     return (
         <>
-        <Box sx={{ width: '-webkit-fill-available'}} >
+        <Box sx={{ width: '-webkit-fill-available', height:isMobile? '16rem':'15rem'}} >
             <section className="image-slider">
                 <div className="left">
-                    <ArrowBackIosIcon onClick={prevSlide} />
+                    <ArrowBackIosIcon onClick={prevSlide} sx={{color:'white', backgroundColor:'green',height:'40px', width:'40px', borderRadius:'50%', padding:'13px'}}/>
                 </div>
                 <div className="right">
-                    <ArrowForwardIosIcon onClick={nextSlide} />
+                    <ArrowForwardIosIcon onClick={nextSlide} sx={{color:'white', backgroundColor:'green',height:'40px', width:'40px', borderRadius:'50%', padding:'13px'}}/>
                 </div>
                 {sliderData.map((currentSlide, ind) => (
                     <div
@@ -101,7 +101,7 @@ export default function App() {
                         key={ind}
                     >
                         {ind === activeImageNum && (
-                            <Stack spacing={0} width={isMobile ? '30vh': 'unset'} p={2} sx={{backgroundColor:'rgba(0, 211, 0, 0.2)', borderRadius:'10px'}}>
+                            <Stack spacing={0} width={isMobile ? '27vh': 'unset'} p={2} sx={{backgroundColor:'rgba(0, 211, 0, 0.2)', borderRadius:'10px'}}>
                                 <Typography variant="h6">{currentSlide.review.text}</Typography>
                                 <Typography color="greenish">{currentSlide.review.reviewer}</Typography>
                                 <Typography color="greenish">{currentSlide.review.position}</Typography>
