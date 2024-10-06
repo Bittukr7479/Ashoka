@@ -98,7 +98,7 @@ export default function FreeSoloCreateOption() {
   const [value, setValue] = React.useState(null);
 
   return (
-    <Stack display={'flex'} flexDirection={'row'} justifyContent={'space-around'} pt={3} backgroundColor='#defff0'>
+    <Stack display={'flex'} flexDirection={'row'} justifyContent={'space-around'} pt={3} backgroundColor='#defff0' pb={'40px'}>
       {/* <HomePage/> */}
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
         <Stack flexDirection={'row'}>

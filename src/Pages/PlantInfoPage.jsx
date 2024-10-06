@@ -1,185 +1,5 @@
-// import React from 'react';
-// import { Box, Typography, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
-// import {
-//   Favorite as HeartIcon,
-//   Psychology as BrainIcon,
-//   Shield as ShieldIcon,
-//   LocalHospital as BandageIcon,
-//   Restaurant as UtensilsIcon,
-//   Opacity as DropletIcon,
-//   ContentCut as HarvestIcon,
-//   Public as LocationIcon
-// } from '@mui/icons-material';
-// export default function NeemInfo() {
-//   // Refs for each section
-//   const diseasesRef = React.useRef(null);
-//   const usesRef = React.useRef(null);
-//   const cultivationRef = React.useRef(null);
-//   const harvestingRef = React.useRef(null);
-//   const locationRef = React.useRef(null);
-
-//   // Function to handle smooth scrolling to a section
-//   const handleScroll = (ref) => {
-//     ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', });
-//   };
-
-//   return (
-//     <Box display={'flex'}>
-//       <Stack spacing={1} mt={4} position={'fixed'}>
-//         <Typography variant='h5' fontWeight={'500'}>
-//           Contents:
-//         </Typography>
-//         <Button variant='outlined' onClick={() => handleScroll(diseasesRef)}>Diseases Cured</Button>
-//         <Button variant='outlined' onClick={() => handleScroll(usesRef)}>Uses</Button>
-//         <Button variant='outlined' onClick={() => handleScroll(cultivationRef)}>Cultivation Method</Button>
-//         <Button variant='outlined' onClick={() => handleScroll(harvestingRef)}>Harvesting Methods</Button>
-//         <Button variant='outlined' onClick={() => handleScroll(locationRef)}>Where to Find</Button>
-//       </Stack>
-//       <Box sx={{ p: 4 }} ml={30}>
-//         <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
-//           <Card sx={{ width: '20rem' , height:'20rem'}}>
-//             <PlantModel1 />
-//           </Card>
-//         </Box>
-
-//         {/* Heading */}
-//         <Typography variant="h3" sx={{ fontWeight: 'bold', mb: 4 }}>
-//           Neem (Azadirachta indica)
-//         </Typography>
-
-//         {/* Buttons for Navigation */}
-
-//         <Divider sx={{ my: 4 }} />
-
-//         {/* Diseases Cured Section */}
-//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={diseasesRef}>
-//           Diseases Cured
-//         </Typography>
-//         <Grid container spacing={2}>
-//           <Grid item xs={12} md={6}>
-//             <List>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Skin Disorders" secondary="Neem’s antibacterial properties help in treating acne and pimples." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Infections" secondary="Neem is effective against various bacterial and fungal infections." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Digestive Disorders" secondary="Helps in healing stomach ulcers and expelling parasitic worms." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Respiratory Disorders" secondary="Used traditionally to manage asthma symptoms and alleviate cough." />
-//               </ListItem>
-//             </List>
-//           </Grid>
-//           <Grid item xs={12} md={6}>
-//             <List>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Metabolic Disorders" secondary="Helps in managing blood sugar levels and aiding weight management." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Dental Issues" secondary="Helps reduce gum inflammation and alleviates toothache." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Joint Disorders" secondary="Neem’s anti-inflammatory properties help in reducing joint pain." />
-//               </ListItem>
-//               <ListItem>
-//                 <ListItemIcon><BandageIcon /></ListItemIcon>
-//                 <ListItemText primary="Eye Disorders" secondary="Used to treat eye infections like conjunctivitis." />
-//               </ListItem>
-//             </List>
-//           </Grid>
-//         </Grid>
-
-//         <Divider sx={{ my: 4 }} />
-
-//         {/* Uses Section */}
-//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={usesRef}>
-//           Uses
-//         </Typography>
-//         <List>
-//           <ListItem>
-//             <ListItemIcon><UtensilsIcon /></ListItemIcon>
-//             <ListItemText primary="Medicinal" secondary="Used in traditional medicine for its calming effects." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><UtensilsIcon /></ListItemIcon>
-//             <ListItemText primary="Pest Control" secondary="Neem oil is used as an organic pesticide." />
-//           </ListItem>
-//         </List>
-
-//         <Divider sx={{ my: 4 }} />
-
-//         {/* Cultivation Method Section */}
-//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={cultivationRef}>
-//           Cultivation Method
-//         </Typography>
-//         <List>
-//           <ListItem>
-//             <ListItemIcon><BandageIcon /></ListItemIcon>
-//             <ListItemText primary="Location" secondary="Prefers tropical and subtropical climates with full sunlight." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><BandageIcon /></ListItemIcon>
-//             <ListItemText primary="Soil" secondary="Well-drained sandy loam soil with a pH of 6-7." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><BandageIcon /></ListItemIcon>
-//             <ListItemText primary="Propagation" secondary="Typically grown from seeds, soak seeds for 24 hours before planting." />
-//           </ListItem>
-//         </List>
-
-//         <Divider sx={{ my: 4 }} />
-
-//         {/* Harvesting Method Section */}
-//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={harvestingRef}>
-//           Harvesting Methods
-//         </Typography>
-//         <List>
-//           <ListItem>
-//             <ListItemIcon><HarvestIcon /></ListItemIcon>
-//             <ListItemText primary="Seeds" secondary="Harvest when mature, typically yellowish-brown." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><HarvestIcon /></ListItemIcon>
-//             <ListItemText primary="Leaves" secondary="Harvest year-round, ensuring enough foliage remains." />
-//           </ListItem>
-//         </List>
-
-//         <Divider sx={{ my: 4 }} />
-
-//         {/* Where to Find Section */}
-//         <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} ref={locationRef}>
-//           Where to Find
-//         </Typography>
-//         <List>
-//           <ListItem>
-//             <ListItemIcon><LocationIcon /></ListItemIcon>
-//             <ListItemText primary="Common Locations" secondary="Found in rural areas, home gardens, and urban parks." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><LocationIcon /></ListItemIcon>
-//             <ListItemText primary="National Parks" secondary="Present in Ranthambore, Bandhavgarh, and Guindy National Parks." />
-//           </ListItem>
-//           <ListItem>
-//             <ListItemIcon><LocationIcon /></ListItemIcon>
-//             <ListItemText primary="States" secondary="Concentrated in Uttar Pradesh, Rajasthan, and Madhya Pradesh." />
-//           </ListItem>
-//         </List>
-//       </Box>
-//     </Box>
-//   );
-// }
-
 import React from 'react';
-import { Box, Typography, Grid, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
+import { Box, Typography, Grid2, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
 import PlantModel1 from '../components/Plants3DModel/Plant1'
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import {
@@ -237,8 +57,8 @@ export default function AloeVeraInfo() {
         <Typography color='green' variant="h4" sx={{ fontWeight: 'bold', mb: 2 }} display={'flex'} ref={diseasesRef}>
           <MedicalInformationIcon fontSize='large' /> &nbsp; Diseases Cured
         </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+        <Grid2 container spacing={2}>
+          <Grid2 item xs={12} md={6}>
             <List>
               <ListItem>
                 <ListItemIcon><BandageIcon /></ListItemIcon>
@@ -257,8 +77,8 @@ export default function AloeVeraInfo() {
                 <ListItemText primary="Ulcers and Digestive Issues" secondary="Helps soothe the stomach lining and reduce acid reflux." />
               </ListItem>
             </List>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </Grid2>
+          <Grid2 item xs={12} md={6}>
             <List>
               <ListItem>
                 <ListItemIcon><BandageIcon /></ListItemIcon>
@@ -277,8 +97,8 @@ export default function AloeVeraInfo() {
                 <ListItemText primary="Immune System Support" secondary="Rich in antioxidants, aloe vera helps boost the immune system." />
               </ListItem>
             </List>
-          </Grid>
-        </Grid>
+          </Grid2>
+        </Grid2>
 
         <Divider sx={{ my: 4 }} />
 
@@ -363,8 +183,8 @@ export default function AloeVeraInfo() {
             <ListItemText primary="Regions" secondary="Prefers arid, tropical, and semi-tropical climates." />
           </ListItem>
         </List>
-        <FeedBack/>
         <PlantGoogleMap/>
+        <FeedBack/>
       </Box>
     </Box>
   );

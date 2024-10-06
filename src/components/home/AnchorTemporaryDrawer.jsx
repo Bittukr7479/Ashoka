@@ -33,17 +33,19 @@ export default function RightSideDrawer() {
         sx={{ width: 100, height: 100, mx: 'auto', mb: 2 }}
       />
       <Typography variant="h5" fontWeight="bold">
-        John Doe
+        Shreya kumari
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Frontend Developer | React Enthusiast | Open Source Contributor
+        <b>Student </b><br />
+        Bakhtiyarpur College of Engineering
       </Typography>
       <Divider sx={{ my: 2 }} />
       <Typography variant="body1" fontWeight="bold">
-        Contact Info
+        Contact Info: <br/>
+        +91**********
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        Email: john.doe@example.com
+        Email: shreykumari@example.com
       </Typography>
     </Box>
   );
@@ -63,7 +65,7 @@ export default function RightSideDrawer() {
             <ListItemButton>
               <ListItemIcon>
                 {index === 2 ? <InboxIcon /> : <MailIcon />}
-                
+
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -76,7 +78,7 @@ export default function RightSideDrawer() {
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                {index  === 2 ? <InboxIcon /> :<Button><MailIcon /></Button> }
+                {index === 2 ? <InboxIcon /> : <Button><MailIcon /></Button>}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
@@ -89,7 +91,7 @@ export default function RightSideDrawer() {
   return (
     <div>
       <IconButton color="primary" aria-label="profile" onClick={toggleDrawer(true)}>
-        <AccountCircleIcon fontSize="large" sx={{color:isMobile? 'black': 'white'}}/>
+        <AccountCircleIcon fontSize="large" sx={{ color: isMobile ? 'black' : 'white' }} />
       </IconButton>
       <Drawer
         anchor="right"

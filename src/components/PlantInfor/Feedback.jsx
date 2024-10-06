@@ -30,7 +30,7 @@ const ReviewsSection = () => {
         gutterBottom
         sx={{ paddingLeft: { xs: '16px', lg: '0' } }}
       >
-        Reviews
+        Plant reviews and suggestions:
       </Typography>
       {reviews.map((review, index) => (
         <Card key={index} style={{ marginBottom: '20px', backgroundColor:'rgba(0, 211, 0, 0.2)', borderRadius:'0 20px' }}>
