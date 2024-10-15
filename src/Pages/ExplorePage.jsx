@@ -1,22 +1,20 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Checkbox, Fade, FormControlLabel, Grid2, IconButton, Paper, Popper, Stack, Typography } from '@mui/material';
-import filterImage from '../Assets/plantImg/plant4.png'; // Correct way to import images
+import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Checkbox, Fade, FormControlLabel, Grid2, IconButton, Paper, Popper, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
+import filterImage from '../Assets/plantImg/plant4.png';
 import PlantList from '../components/Explore/PlantList';
-// import filterPlant from '@mui/icons-material/Tune';
 import Grid from '@mui/material/Grid';
 import TuneIcon from '@mui/icons-material/Tune';
-// import Aloevera from '../components/Plants3DModel/Plant1'
 import Aloevera from '../Pages/Landing3dPlant'
 
 const FilterPlant = function PositionedPopper() {
   const mockPlants = [
-    { id: 1, name: "Ashwagandha", botanicalName: "Withania somnifera", uses: ["Stress relief", "Immunity"], region: "India", type: "Medicinal", image: "/placeholder.svg" },
-    { id: 2, name: "Tulsi", botanicalName: "Ocimum sanctum", uses: ["Respiratory health", "Immunity"], region: "India", type: "Medicinal", image: "/placeholder.svg" },
-    { id: 3, name: "Aloe Vera", botanicalName: "Aloe barbadensis miller", uses: ["Skin care", "Digestive health"], region: "Africa", type: "Medicinal", image: "/placeholder.svg" },
+    { id: 1, name: "Ashwagandha", botanicalName: "Withania somnifera", uses: ["Stress relief", "Immunity"], region: "India", type: "Medicinal", image: "/images/ashwagandha.png" },
+    { id: 2, name: "Tulsi", botanicalName: "Ocimum sanctum", uses: ["Respiratory health", "Immunity"], region: "India", type: "Medicinal", image: "/images/tulsi.png" },
+    { id: 3, name: "Aloe Vera", botanicalName: "Aloe barbadensis miller", uses: ["Skin care", "Digestive health"], region: "Africa", type: "Medicinal", image: "/images/aloevera.png" },
     // Add more mock plants as needed
-  ]
+  ];
 
   const filterOptions = {
     medicinalUses: ["Stress relief", "Immunity", "Respiratory health", "Skin care", "Digestive health"],
@@ -24,7 +22,8 @@ const FilterPlant = function PositionedPopper() {
     types: ["Medicinal", "Aromatic", "Edible"],
     botanicalClassifications: ["Herb", "Shrub", "Tree"],
     cultivationMethods: ["Organic", "Conventional", "Hydroponic"]
-  }
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
@@ -34,7 +33,6 @@ const FilterPlant = function PositionedPopper() {
     setOpen((prev) => placement !== newPlacement || !prev);
     setPlacement(newPlacement);
   };
-
   return (
     <Box>
       <Popper
@@ -43,7 +41,6 @@ const FilterPlant = function PositionedPopper() {
         anchorEl={anchorEl}
         placement={placement}
         transition
-        
       >
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={350}>
@@ -87,7 +84,6 @@ const FilterPlant = function PositionedPopper() {
           </Grid>
         </Grid>
       </Grid>
-
     </Box>
   );
 }
@@ -97,9 +93,12 @@ const filter = createFilterOptions();
 export default function FreeSoloCreateOption() {
   const [value, setValue] = React.useState(null);
 
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Stack display={'flex'} flexDirection={'row'} justifyContent={'space-around'} pt={3} backgroundColor='#defff0' pb={'40px'}>
-      {/* <HomePage/> */}
+    <Stack display={'flex'} flexDirection={isMobile?'column': 'row'} justifyContent={'space-around'} pt={3} backgroundColor='#defff0' pb={'40px'}>
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
         <Stack flexDirection={'row'}>
           <Autocomplete
@@ -120,9 +119,7 @@ export default function FreeSoloCreateOption() {
             }}
             filterOptions={(options, params) => {
               const filtered = filter(options, params);
-
               const { inputValue } = params;
-              // Suggest the creation of a new value
               const isExisting = options.some((option) => inputValue === option.title);
               if (inputValue !== '' && !isExisting) {
                 filtered.push({
@@ -130,7 +127,6 @@ export default function FreeSoloCreateOption() {
                   title: `Add "${inputValue}"`,
                 });
               }
-
               return filtered;
             }}
             selectOnFocus
@@ -139,51 +135,43 @@ export default function FreeSoloCreateOption() {
             id="free-solo-with-text-demo"
             options={plantsList}
             getOptionLabel={(option) => {
-              // Value selected with enter, right from the input
               if (typeof option === 'string') {
                 return option;
               }
-              // Add "xxx" option created dynamically
               if (option.inputValue) {
                 return option.inputValue;
               }
-              // Regular option
               return option.title;
             }}
-            renderOption={(props, option) => {
-              const { key, ...optionProps } = props;
-              return (
-                <li key={key} {...optionProps}>
-                  {option.title}
-                </li>
-              );
-            }}
+            renderOption={(props, option) => (
+              <li {...props}>
+                {option.title}
+              </li>
+            )}
             sx={{ width: 300 }}
             freeSolo
             renderInput={(params) => (
-              <TextField {...params} label="Free solo with text demo" />
+              <TextField color='success' {...params} label="Search plant here" />
             )}
           />
-          {/* <IconButton> */}
           <FilterPlant />
-          {/* </IconButton> */}
         </Stack>
-        <Card sx={{ width: '100%', borderRadius: '10px', maxWidth: 345 }}>
-          <Box height={'50%'}>
-            <Aloevera/>
-          </Box>
+
+        {value && (
+          <Card sx={{ width: '100%', borderRadius: '10px', maxWidth: 345 }}>
+            <Box height={'50%'}>
+              <Aloevera />
+            </Box>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div" color='success' fontWeight={'bold'} mt={'20px'}>
-                Aloe Vera
+                {value.title}
               </Typography>
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              <b>Aloe vera </b>is a succulent plant with thick, gel-filled leaves, known for its medicinal uses.
-              It helps heal burns, soothes skin, and supports digestion.              </Typography>
+                {value.desc}
+              </Typography>
             </CardContent>
-            
-          {/* <CardActionArea>
-          </CardActionArea> */}
-        </Card>
+          </Card>
+        )}
       </Box>
       <PlantList />
     </Stack>
@@ -191,21 +179,15 @@ export default function FreeSoloCreateOption() {
 }
 
 const plantsList = [
-  { title: 'Aloe Vera', val: 1 },
-  { title: 'Basil', val: 2 },
-  { title: 'Chamomile', val: 3 },
-  { title: 'Echinacea', val: 4 },
-  { title: 'Fenugreek', val: 5 },
-  { title: 'Ginger', val: 6 },
-  { title: 'Lavender', val: 7 },
-  { title: 'Mint', val: 8 },
-  { title: 'Neem', val: 9 },
-  { title: 'Peppermint', val: 10 },
-  { title: 'Rosemary', val: 11 },
-  { title: 'Sage', val: 12 },
-  { title: 'Thyme', val: 13 },
-  { title: 'Turmeric', val: 14 },
-  { title: 'Holy Basil', val: 15 },
-  { title: 'Lemongrass', val: 16 },
-  { title: 'Oregano', val: 17 },
+  { title: 'Aloe Vera', desc: 'Aloe vera is a succulent plant with thick, gel-filled leaves, known for its medicinal uses. It helps heal burns, soothes skin, and supports digestion.', val: 1 },
+  { title: 'Basil', desc: 'Basil is known for its aromatic properties and use in culinary dishes. It also has medicinal benefits for digestion and inflammation.', val: 2 },
+  { title: 'Neem', desc: 'Neem is widely known for its antibacterial and antifungal properties. It is used in skincare and as a natural pesticide.', val: 3 },
+  { title: 'Ashwagandha', desc: 'Ashwagandha is a medicinal herb used for reducing stress, boosting energy levels, and improving concentration.', val: 4 },
+  { title: 'Tulsi', desc: 'Tulsi, or Holy Basil, is revered for its medicinal properties. It supports respiratory health and strengthens immunity.', val: 5 },
+  { title: 'Lavender', desc: 'Lavender is known for its calming aroma and is used to reduce anxiety, improve sleep, and soothe the skin.', val: 6 },
+  { title: 'Peppermint', desc: 'Peppermint is used for its digestive benefits and its refreshing aroma. It is often used to relieve headaches and muscle pain.', val: 7 },
+  { title: 'Rosemary', desc: 'Rosemary is an herb known for enhancing memory and concentration. It is also used in cooking for its flavorful aroma.', val: 8 },
+  { title: 'Eucalyptus', desc: 'Eucalyptus leaves are used for their decongestant properties. They are often found in remedies for coughs and colds.', val: 9 },
+  { title: 'Chamomile', desc: 'Chamomile is known for its calming effects and is often used in teas to promote relaxation and sleep.', val: 10 },
 ];
+

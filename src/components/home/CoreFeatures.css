@@ -42,3 +42,13 @@
     width: 60%;
  }
  h2 {text-align: center;} 
+ 
+.hide-scrollbar {
+   overflow-x: auto;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+   &::-webkit-scrollbar {
+     display: none;
+   }
+ }
+ 

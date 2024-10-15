@@ -88,7 +88,7 @@ function LoremPage() {
   const [soul, setSoul] = useState("#ffff");
   return (
     <div >
-      <div class="product-canvas">
+      <div className="product-canvas">
         <Canvas>
           <Suspense fallback={null}>
             <ambientLight />

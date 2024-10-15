@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Grid2, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card } from '@mui/material';
+import { Box, Typography, Grid2, List, ListItem, ListItemIcon, ListItemText, Divider, Button, Stack, Paper, Card, useTheme, useMediaQuery } from '@mui/material';
 import PlantModel1 from '../components/Plants3DModel/Plant1'
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import {
@@ -16,21 +16,26 @@ import FeedBack from '../components/PlantInfor/Feedback'
 import PlantGoogleMap from '../components/PlnatInfo/PlantGoogleMap';
 import Aloevera from './Landing3dPlant'
 export default function AloeVeraInfo() {
-  // Refs for each section
   const diseasesRef = React.useRef(null);
   const usesRef = React.useRef(null);
   const cultivationRef = React.useRef(null);
   const harvestingRef = React.useRef(null);
   const locationRef = React.useRef(null);
 
-  // Function to handle smooth scrolling to a section
   const handleScroll = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth', block: 'center', });
   };
+  
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
 
   return (
-    <Box display={'flex'} sx={{backgroundColor:'#defff0'}}>
-      <Stack spacing={1} mt={4} position={'fixed'} ml={3}>
+    <Box display={'flex'} sx={{backgroundColor:'#defff0', width:'100%'}}>
+      <Stack spacing={1} width={isMobile?'28%':'15%'} mt={4} m={isMobile?'8px':'1.5rem'}>
+        <Stack spacing={1} position={'fixed'} width={isMobile?'28%':'15%'}>
+
         <Typography variant='h5' fontWeight={'600'}>
           Contents:
         </Typography>
@@ -39,15 +44,16 @@ export default function AloeVeraInfo() {
         <Button color='success' variant='outlined' onClick={() => handleScroll(cultivationRef)}>Cultivation Method</Button>
         <Button color='success' variant='outlined' onClick={() => handleScroll(harvestingRef)}>Harvesting Methods</Button>
         <Button color='success' variant='outlined' onClick={() => handleScroll(locationRef)}>Where to Find</Button>
+        </Stack>
       </Stack>
-      <Box sx={{ p: 4 }} ml={30}>
+      <Box sx={{ p: isMobile? 'unset' : 4 }} m={'auto'} width={isMobile?'62%':'75%'}>
         <Box display={'flex'} alignItems={'center'} justifyContent={'center'}>
           <Card sx={{ width: '20rem', height: '20rem', backgroundColor:'#849e93' }}>
             <Aloevera />
           </Card>
         </Box>
         {/* Heading */}
-        <Typography variant="h3" display={'flex'} alignItems={'center'} justifyContent={'center'} color='success' sx={{ fontWeight: 'bold', mb: 4 }}>
+        <Typography variant={isMobile? "h4":"h3"} display={'flex'} alignItems={'center'} justifyContent={'center'} color='success' sx={{ fontWeight: 'bold', mb: 4 }}>
           Aloe Vera (Aloe barbadensis miller)
         </Typography>
         <Divider sx={{ my: 4 }} />

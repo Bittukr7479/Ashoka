@@ -1,23 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react';
 import GrassIcon from '@mui/icons-material/Grass';
-import EmailIcon from '@mui/icons-material/Email';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
-import { Stack, Button, Divider, Link, TextField, Typography, Box, styled, MenuItem } from '@mui/material';
-
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
+import { Stack, Button, Divider, Link, TextField, Typography, Box, IconButton, OutlinedInput, InputLabel, InputAdornment, FormControl, Alert, MenuItem, useTheme, useMediaQuery } from '@mui/material';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 function LoginPage() {
-  const currencies = [
+  
+  const theme = useTheme();
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const Categories = [
     {
       value: '1',
       label: 'Student',
@@ -35,47 +31,85 @@ function LoginPage() {
       label: 'Educator',
     }
   ];
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [newUserDetails, setNewUserDetails] = useState({
+    name: '',
+    email: '',
+    password: '',
+    selectCategory:''
+  });
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const handleUserDetailsCreate = (event) => {
+    const { name, value } = event.target;
+    setNewUserDetails((prevDetails) => ({
+      ...prevDetails,
+      [name]: value,
+    }));
   };
 
-  const handleMouseUpPassword = (event) => {
+  const handleUserDetailsCreateSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:3001/register', newUserDetails, {
+        headers: { 'Content-Type': 'application/json' }
+      });
+      console.log(response.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
+
+  const handleMouseDownPassword = (event) => event.preventDefault();
+  const handleMouseUpPassword = (event) => event.preventDefault();
 
   return (
-    <Stack maxWidth={'30rem'} gap={'3px'} p={4} justifyContent={'center'} alignItems={'center'}
-    //  sx={{backgroundColor:'#79e0586e'}}
-    >
-      <GrassIcon sx={{ fontSize: '50px', color: 'green' }} />
-      <Typography variant='h4' color='success'>
+    <Stack maxWidth={'30rem'} gap={'3px'} sx={{ p: '8px 26px' }} justifyContent={'center'} alignItems={'center'}>
+      <GrassIcon sx={{ fontSize: isMobile?'35px':'50px', color: 'green' }} />
+      <Typography variant={isMobile?"h5":'h4'} color='success' textAlign={'center'}>
         Ashoka 3D Virtual Herbal
       </Typography>
-      <Typography variant='h4' color='success'>
+      <Typography variant={isMobile?"h5":'h4'} color='success' textAlign={'center'}>
         Garden
       </Typography>
       <Typography color='#1cce39'>
         Connect with nature, digitally
       </Typography>
-      <Stack gap={'30px'} mt={1} width={'-webkit-fill-available'} >
+      <form style={{ width: '100%' }}>
         <TextField
-          id="outlined-email-input"
-          label="Email"
-          type="email"
-          autoComplete="email"
+          id="name"
+          name='name'
+          label="Name"
+          size='small'
           color='success'
+          value={newUserDetails.name}
+          onChange={handleUserDetailsCreate}
+          fullWidth
         />
-        <FormControl variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password" color='success'>Password</InputLabel>
+        <TextField
+          size='small'
+          name='email'
+          id="email"
+          label="Email"
+          color='success'
+          value={newUserDetails.email}
+          onChange={handleUserDetailsCreate}
+          fullWidth
+          style={{ marginTop: '10px' }}
+        />
+        <FormControl variant="outlined" size='small' fullWidth style={{ marginTop: '10px' }}>
+          <InputLabel htmlFor="password" color='success'>Password</InputLabel>
           <OutlinedInput
-            id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
+            id="password"
+            name='password'
+            label="Password"
             color='success'
+            value={newUserDetails.password}
+            onChange={handleUserDetailsCreate}
+            type={showPassword ? 'text' : 'password'}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -90,42 +124,39 @@ function LoginPage() {
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
           />
         </FormControl>
         <TextField
-                  color='success'
-          id="select-categories"
+          size='small'
+          name='selectCategory'
+          id="selectCategory"
+          color='success'
+          label="Categories"
+          helperText="Please select your categories"
+          value={newUserDetails.selectCategory}
+          onChange={handleUserDetailsCreate}
+          fullWidth
           select
-          label="Select Role"
-          // defaultValue="1"
-          helperText="Please select your roll"
+          style={{ marginTop: '10px' }}
         >
-          {currencies.map((option) => (
+          {Categories.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
           ))}
         </TextField>
-        {/* <TextField
-          id="outlined-password-input"
-          label="Password"
-          type="password"
-          autoComplete="current-password"
-        /> */}
-        <Button variant='contained' color='success'>
+        <Button variant='contained' color='success' onClick={handleUserDetailsCreateSubmit} fullWidth style={{ marginTop: '15px' }}>
           Login
         </Button>
-      </Stack>
+      </form>
       <Link variant='body2' color='success' mt={2}>
         Forget Password?
       </Link>
-      <Divider sx={{ width: '100%', margin:'8px 0px' }}>
+      <Divider sx={{ width: '100%', margin: '8px 0px' }}>
         <Typography color="success" sx={{ px: 1, backgroundColor: 'white' }}>
           Or continue with
         </Typography>
       </Divider>
-
       <Box display={'flex'} gap={'20px'} width={'-webkit-fill-available'}>
         <Button color='success' fullWidth variant='outlined' startIcon={<GoogleIcon />}>Google</Button>
         <Button color='success' fullWidth variant='outlined' startIcon={<FacebookIcon />}>Facebook</Button>
@@ -137,7 +168,7 @@ function LoginPage() {
         </Link>
       </Typography>
     </Stack>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

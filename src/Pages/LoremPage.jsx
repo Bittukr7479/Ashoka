@@ -45,7 +45,7 @@ function LoremPage() {
   const [soul, setSoul] = useState("#ffff");
   return (
     <div style={{width:'100%', height:'fit-content'}}>
-      <div class="product-canvas">
+      <div className="product-canvas">
         <Canvas>
           <Suspense fallback={null}>
             <ambientLight />
