@@ -28,7 +28,6 @@ import Plant1 from '../Plants3DModel/Plant1'
 import Plant2 from '../Plants3DModel/Plant2'
 import Plant3 from '../Plants3DModel/Plant3'
 import { useNavigate } from 'react-router-dom';
-
 // Function to generate sharing URLs
 const getWhatsAppShareURL = (message) => `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
 const getFacebookShareURL = (url) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
@@ -36,7 +35,7 @@ const getInstagramProfileURL = (username) => `https://www.instagram.com/${userna
 
 
 export default function ImgMediaCard() {
-  
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const description = (path) => {
@@ -73,16 +72,16 @@ export default function ImgMediaCard() {
       <Typography fontWeight={'600'} variant='h4' display={'flex'} justifyContent={'center'}>
         Let's Exlpore 3D Herbal Plant
       </Typography>
-      <div className="scroll-container" style={{ display: 'flex', overflowX: 'auto', gap: '20px', padding: '20px' }}>
+      <div className="hide-scrollbar" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
         {cardData.map((card, index) => (
           <Card
-            sx={{ minWidth: 280, maxWidth: '300px', flex: '0 0 auto', borderRadius: '0px 20px', border: '2px solid green', height:'30rem' }}
+            sx={{ minWidth: 280, maxWidth: '300px', flex: '0 0 auto', borderRadius: '0px 20px', border: '2px solid green', height: '30rem' }}
             key={index}
           >
             <CardActionArea sx={{ height: '50%' }}>
               {card.image}
             </CardActionArea>
-            <CardContent sx={{marginTop:'36px'}}>
+            <CardContent sx={{ marginTop: '36px' }}>
               <Typography gutterBottom variant="h5" component="div">
                 {card.title}
               </Typography>
@@ -94,7 +93,7 @@ export default function ImgMediaCard() {
               <Tooltip
                 title={
                   <div style={{ display: 'flex', justifyContent: 'row' }}>
-                    <Typography color='#fff'>Share <br/> More </Typography>
+                    <Typography color='#fff'>Share <br /> More </Typography>
                     <Box display={'flex'} justifyContent={'column'}>
                       {/* WhatsApp Share */}
                       <IconButton href={getWhatsAppShareURL(`${card.title} - ${card.description}`)} target="_blank">
@@ -106,7 +105,7 @@ export default function ImgMediaCard() {
                         <FacebookIcon fontSize="large" color="primary" />
                       </IconButton>
 
-                      {/* Instagram Profile (no direct sharing allowed) */}
+                      {/* Instagram Profile */}
                       <IconButton href={getInstagramProfileURL('your_instagram_username')} target="_blank">
                         <InstagramIcon fontSize="large" style={{ color: '#C13584' }} />
                       </IconButton>
@@ -120,20 +119,14 @@ export default function ImgMediaCard() {
                   <ShareIcon />
                 </IconButton>
               </Tooltip>
-              <IconButton 
-              
-                // open={openTooltip && activeCard === card}
-                // onClose={handleTooltipClose}
-                // onOpen={() => handleTooltipOpen(card)}
-                onClick={() => description()}
-                  aria-label="read more"
-              >
+              <IconButton onClick={() => description()} aria-label="read more">
                 <ReadMoreIcon />
               </IconButton>
             </CardActions>
           </Card>
         ))}
       </div>
+
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {
   MarkerF,
   useLoadScript,
 } from "@react-google-maps/api";
-import PlantMapLogo from '../../Assets/PlantMapLogo.png'; // Correctly importing the image file
+import PlantMapLogo from '../../Assets/PlantMapLogo.png';
 import { Box, Typography } from "@mui/material";
 
 const markers = [
