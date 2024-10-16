@@ -13,7 +13,7 @@ import LandingPage from './Pages/LandingPage';
 // import virtualGarden from '../public/VirtualGarden'
 import Footer from './Layout/Footer'
 import LoginPage from './Pages/LoginPage'
-
+import ChatBotPage from './Pages/ChatBotPage'
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +28,7 @@ function App() {
         <Route path="/lorem-ipsum" element={<LoremPage />} />
         <Route path='/home' element={<LandingPage/>} />
         <Route path='/login-page' element={<LoginPage/>} />
+        <Route path='/chat-page' element={<ChatBotPage/>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
