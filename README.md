@@ -1,6 +1,16 @@
 Here’s a simple yet informative `README.md` template for your **Ashoka 3D Virtual Herbal Garden Login Page** project. You can copy-paste and update it based on your repo details:
 
-```markdown
+
+## 📖 About the Project
+
+The **Ashoka 3D Virtual Herbal Garden** is part of the AYUSH Ministry's initiative to promote awareness of traditional medicinal plants. This login module serves as the gateway for users to access the interactive platform. Built with user-centric design in mind, the login system is fast, modern, and integrates with backend services to ensure a smooth authentication experience.
+
+This UI component will be integrated into the broader Ashoka platform which features:
+- A 3D interactive garden view
+- Information panels on each herbal plant
+
+---
+
 # 🌿 Ashoka 3D Virtual Herbal Garden - Login Page
 
 A React-based login and registration UI component built using Material-UI for the Ashoka 3D Virtual Herbal Garden project. The app allows users to register with their name, email, and password and includes social login buttons for Google and Facebook (UI only).
@@ -25,6 +35,7 @@ A React-based login and registration UI component built using Material-UI for th
 ---
 
 ## 🛠️ Tech Stack
+```markdown
 
 - [React](https://reactjs.org/)
 - [Material-UI](https://mui.com/)
@@ -70,7 +81,7 @@ Example request body:
 }
 ```
 
-Visit the [ashoka-api](https://github.com/your-org/ashoka-api) repository for the backend code.
+Visit the [ashoka-api](https://github.com/Bittukr7479/Ashoka-api) repository for the backend code.
 
 ---
 
@@ -80,33 +91,7 @@ Pull requests, issues, and feature suggestions are welcome! If you have ideas to
 
 ---
 
-## 📄 License
-
-MIT License
-
-Copyright (c) 2024 Bittu Kumar
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
----
-
 ## 🌱 Project by
 
 **Ashoka Hackathon Team** – promoting digital connection with nature through the Virtual Herbal Garden 🌿
-```
+
