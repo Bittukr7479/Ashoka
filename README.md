@@ -89,9 +89,3 @@ Visit the [ashoka-api](https://github.com/Bittukr7479/Ashoka-api) repository for
 
 Pull requests, issues, and feature suggestions are welcome! If you have ideas to upgrade or enhance this project, feel free to open a PR or raise an issue.
 
----
-
-## 🌱 Project by
-
-**Ashoka Hackathon Team** – promoting digital connection with nature through the Virtual Herbal Garden 🌿
-
